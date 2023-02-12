@@ -1,3 +1,9 @@
 .logo {
     padding: 3rem 0 2.5rem;
 }
+
+@media all and (max-width: 441px) {
+    .logo {
+      padding: 30px 0 32px 27px;
+  }
+  }

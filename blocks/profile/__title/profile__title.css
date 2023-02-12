@@ -6,3 +6,18 @@
   line-height: 48px;
   margin: 0;
 }
+
+@media all and (max-width: 767px) {
+  .profile__title {
+    font-size: 38px;
+    line-height: 19px;
+  }
+}
+
+@media all and (max-width: 524px) {
+  .profile__title {
+    font-size: 27px;
+    line-height: 33px;
+    text-align: center;
+  }
+}

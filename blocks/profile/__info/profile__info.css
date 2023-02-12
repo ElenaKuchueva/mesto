@@ -2,3 +2,10 @@
   display: flex;
   column-gap: 18px;
 }
+
+@media all and (max-width: 441px) {
+  .profile__info {
+    column-gap: 10px; 
+    
+  }
+}

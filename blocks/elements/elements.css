@@ -1,8 +1,34 @@
 .elements {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 2.5rem  0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-    gap: 20px 17px;
+  max-width: 880px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+  gap: 20px 17px;
+  padding: 2.5rem 0;
+}
+
+@media all and (max-width: 1279px) {
+  .elements {
+    max-width: 90%;
+  }
+}
+
+@media all and (max-width: 767px) {
+  .elements {
+    padding: 36px 0;
+    gap: 17px 14px;
+  }
+}
+
+@media all and (max-width: 642px) {
+  .elements {
+    max-width: 70%;
+  }
+}
+
+@media all and (max-width: 441px) {
+  .elements {
+    max-width: 90%;
+    gap: 20px;
+  }
 }

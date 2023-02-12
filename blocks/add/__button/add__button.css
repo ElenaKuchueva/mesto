@@ -1,6 +1,21 @@
 .add__button {
-    outline: 1px solid #fff;
-    max-width: 150px;
-    max-height: 50px;
-    background-image: url(../../../images/button.png);
+  outline: 1px solid #fff;
+  width: 150px;
+  height: 50px;
+  background-image: url(../../../images/button.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: black;
+  padding: 0;
+  border-width: 0;
+}
+
+.add__button:hover {
+  opacity: .8;
+}
+
+@media all and (max-width:767px) {
+  .add__button {
+    width: 100%;
+  }
 }

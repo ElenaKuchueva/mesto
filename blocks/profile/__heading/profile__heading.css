@@ -5,3 +5,9 @@
     row-gap: 1rem;
     justify-content: center;
 }
+
+@media all and (max-width: 441px) {
+    .profile__heading {
+        row-gap: 16px;
+    }
+  }

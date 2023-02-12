@@ -6,3 +6,11 @@
   line-height: 22px;
   color: #545454;
 }
+
+@media all and (max-width: 441px) {
+  .footer__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
