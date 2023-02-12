@@ -1,0 +1,6 @@
+.add__button {
+    outline: 1px solid #fff;
+    max-width: 150px;
+    max-height: 50px;
+    background-image: url(../../../images/button.png);
+}
