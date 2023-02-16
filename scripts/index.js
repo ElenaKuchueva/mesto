@@ -4,6 +4,16 @@ let userName = document.querySelector('#username');
 let occupation = document.querySelector('#occupation');
 let profileTitle = document.querySelector('.profile__title');
 let profileSubtitle = document.querySelector('.profile__subtitle');
+let popupClose = document.querySelector('.popup__close');
+let formElement = document.querySelector('.fields');
+
+function close() {
+  editPopup.classList.remove('popup_opened');
+};
+
+popupClose.addEventListener ('click',function() {
+  close();
+});
 
 editProfileButton.addEventListener ('click', function() {
   editPopup.classList.add('popup_opened');
@@ -11,21 +21,9 @@ editProfileButton.addEventListener ('click', function() {
   occupation.value = profileSubtitle.textContent;
 });
 
-let popupClose = document.querySelector('.popup__close');
-
-popupClose.addEventListener ('click',function() {
-  editPopup.classList.remove('popup_opened');
-});
-
-
-let formElement = document.querySelector('.fields');
 function handleFormSubmit (evt) {
   evt.preventDefault();
-
- let valueUserName = userName.value;
- let valueOccupation = occupation.value;
-
-  profileTitle.textContent = valueUserName;
-  profileSubtitle.textContent = valueOccupation;
+  profileTitle.textContent = userName.value;
+  profileSubtitle.textContent = occupation.value;
 };
 formElement.addEventListener('submit', handleFormSubmit);

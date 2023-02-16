@@ -16,6 +16,7 @@
 
 .submit:hover {
   opacity: .8;
+  cursor: pointer;
 }
 
 @media all and (max-width: 614px) {

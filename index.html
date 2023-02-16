@@ -1,128 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
-    <title>Mesto</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Mesto</title>
 </head>
-<body>
-  <div class="page">
 
-    <header class="header">
+<body class="page">
 
-      <img src="./images/logo.svg" class="logo" alt="Логотип Место.">
+  <header class="header">
+    <img src="./images/logo.svg" class="logo" alt="Логотип.">
+  </header>
 
-    </header>
-      
-    <main class="content">
-
-      <section class="profile">
-
-        <div class="profile__content">
-
-          <img src="./images/avatar.png" class="avatar" alt="Aватар.">
-
-          <div class="profile__info">
-
-            <div class="profile__heading">
-              <h2 class="profile__title">Жак-Ив Кусто</h2>
-              <p class="profile__subtitle">Исследователь океана</p>
-            </div>
-            
-            <button class="profile__button"></button>
-
+  <main class="content">
+    <section class="profile">
+      <div class="profile__content">
+        <img src="./images/avatar.png" class="avatar" alt="Фото профиля.">
+        <div class="profile__info">
+          <div class="profile__heading">
+            <h1 class="profile__title">Жак-Ив Кусто</h1>
+            <p class="profile__subtitle">Исследователь океана</p>
           </div>
-
+          <button class="profile__button" type="button" aria-label="Редактировать профиль."></button>
         </div>
-       
-        <button class="profile__add" ></button>
-     
-      </section>
+      </div>
+      <button class="profile__add" type="button" aria-label="Добавить фото."></button>
+    </section>
 
-      <section class="elements">
-     
-        <div class="element">
-          <img src="./images/Karachaevsk.png" class="element__image" alt="Старый кирпичный  разрушенный храм.">
-          <div class="element__description">
-            <h2 class="element__title">Карачаевск</h2>
-            <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Иконнка в виде сердечка.">
-          </div>
+    <section class="elements">
+      <article class="element">
+        <img src="./images/Karachaevsk.png" class="element__image" alt="Старый кирпичный  разрушенный храм.">
+        <div class="element__description">
+          <h2 class="element__title">Карачаевск</h2>
+          <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Нравится.">
         </div>
+      </article>
 
-        <div class="element">
-          <img src="./images/Elbrus.png" class="element__image" alt="Гора на фоне оранжевого восхода солнца.">
-          <div class="element__description">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Иконнка в виде сердечка.">
-          </div>
+      <article class="element">
+        <img src="./images/Elbrus.png" class="element__image" alt="Гора на фоне оранжевого восхода солнца.">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Нравится.">
         </div>
+      </article>
 
-        <div class="element">
-          <img src="./images/dombai.png" class="element__image" alt="Гора на фоне восхода.">
-          <div class="element__description">
-            <h2 class="element__title">Домбай</h2>
-            <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Иконнка в виде сердечка.">
-          </div>
+      <article class="element">
+        <img src="./images/dombai.png" class="element__image" alt="Гора на фоне восхода.">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Нравится.">
         </div>
+      </article>
 
-        <div class="element">
-          <img src="./images/Karachaevsk.png" class="element__image" alt="Старый кирпичный  разрушенный храм.">
-          <div class="element__description">
-            <h2 class="element__title">Карачаевск</h2>
-            <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Иконнка в виде сердечка.">
-          </div>
+      <article class="element">
+        <img src="./images/Karachaevsk.png" class="element__image" alt="Старый кирпичный разрушенный храм.">
+        <div class="element__description">
+          <h2 class="element__title">Карачаевск</h2>
+          <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Нравится.">
         </div>
+      </article>
 
-        <div class="element">
-          <img src="./images/Elbrus.png" class="element__image" alt="Гора на фоне оранжевого восхода солнца.">
-          <div class="element__description">
-            <h2 class="element__title">Гора Эльбрус</h2>
-            <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Иконнка в виде сердечка.">
-          </div>
+      <article class="element">
+        <img src="./images/Elbrus.png" class="element__image" alt="Гора на фоне оранжевого восхода солнца.">
+        <div class="element__description">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Нравится.">
         </div>
+      </article>
 
-        <div class="element">
-          <img src="./images/dombai.png" class="element__image" alt="Гора на фоне восхода.">
-          <div class="element__description">
-            <h2 class="element__title">Домбай</h2>
-            <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Иконнка в виде сердечка.">
-          </div>
+      <article class="element">
+        <img src="./images/dombai.png" class="element__image" alt="Гора на фоне восхода.">
+        <div class="element__description">
+          <h2 class="element__title">Домбай</h2>
+          <img src="./images/heart.svg" class="element__icon element__icon_disabled element__icon_active" alt="Нравится.">
         </div>
+      </article>
 
-      </section>
+    </section>
+  </main>
 
-    </main>
-
-    <footer class="footer">
+  <footer class="footer">
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
-    </footer>
+  </footer>
 
-    <div class="popup">
-      <div class="popup__container">
-        
-        <img class="popup__close" src="./images/Close-Icon.png" alt="Крестик">
-    
-        <div class="form">
-    
-          <h2 class="form__heading">Редактировать профиль</h2>
-    
-          <form class="fields">
-            <input class="field" type="text" name="username" id="username" value="" tabindex="1" placeholder="Поле для ввода">
-            <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="Поле для ввода">
-            <button class="submit" type="submit">Сохранить</button>
-          </form>
-
-          
-        </div>
-    
+  <div class="popup">
+    <div class="popup__container">
+      <img class="popup__close" src="./images/Close-Icon.png" alt="Закрыть.">
+      <div class="form">
+        <h2 class="form__heading">Редактировать профиль</h2>
+        <form class="fields" name="fields" method="post">
+          <input class="field" type="text" name="username" id="username" value="" tabindex="1" placeholder="Имя">
+          <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="О себе">
+          <button class="submit" type="submit" aria-label="Сохранить изменения">Сохранить</button>
+        </form>
       </div>
     </div>
+  </div>
 
- </div>
-
-<script src="./scripts/index.js"></script>
+  <script src="./scripts/index.js"></script>
 
 </body>
 </html>

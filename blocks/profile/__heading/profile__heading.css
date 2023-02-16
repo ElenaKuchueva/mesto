@@ -28,6 +28,6 @@
 @media all and (max-width: 468px) {
   .profile__heading {
     max-width: 200px;
-    row-gap: 10px;
+    row-gap: 5px;
   }
   }
