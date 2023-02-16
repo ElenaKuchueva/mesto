@@ -1,5 +1,5 @@
 .submit {
-  font-family: 'Inter',  'Arial', 'Helvetica', sans-serif;
+  font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
   max-width: 358px;
   height: 50px;
   background-color: black;
@@ -11,13 +11,22 @@
   padding: 0;
   border: 0;
   border-radius: 2px;
+  margin-top: 21px;
 }
 
 .submit:hover {
   opacity: .8;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 614px) {
+  .submit {
+    font-size: 16px;
+    line-height: 20px;
+    height: 48px;
+  }
+}
+
+@media all and (max-width: 420px) {
   .submit {
     max-width: 238px;
     height: 46px;

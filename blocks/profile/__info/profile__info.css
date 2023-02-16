@@ -5,7 +5,6 @@
 
 @media all and (max-width: 441px) {
   .profile__info {
-    column-gap: 10px; 
-    
+    column-gap: 10px;
   }
 }

@@ -1,4 +1,4 @@
-.edit__button {
+.profile__button {
   width: 24px;
   height: 24px;
   outline: 1px solid #fff;
@@ -11,14 +11,15 @@
   background-color: black;
 }
 
-.edit__button:hover {
+.profile__button:hover {
   opacity: .8;
+  cursor: pointer;
 }
 
 @media all and (max-width: 441px) {
-  .edit__button {
-    width: 18px;
-    height: 18px;
+  .profile__button {
+    width: 16px;
+    height: 16px;
     margin: 7px 0 0;  
-    }
+  }
 }

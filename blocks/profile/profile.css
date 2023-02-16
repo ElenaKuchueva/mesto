@@ -25,5 +25,6 @@
 @media all and (max-width: 441px) {
   .profile {
     align-items: center;
+    justify-content: center;
   }
 }

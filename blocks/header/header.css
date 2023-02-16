@@ -1,7 +1,7 @@
 .header {
-    max-width: 880px;
-    margin: 0 auto;
-    border-bottom: 1px solid #545454;
+  max-width: 880px;
+  margin: 0 auto;
+  border-bottom: 1px solid #545454;
 }
 
 @media all and (max-width: 1279px) {
@@ -14,4 +14,4 @@
     .header {
       max-width: 100%;
   }
-  }
+}

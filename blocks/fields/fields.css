@@ -1,5 +1,5 @@
 .fields {
-    display: flex;
-    flex-direction: column;
-    row-gap: 40px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 31px;
 }

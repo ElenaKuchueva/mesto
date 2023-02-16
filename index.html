@@ -31,13 +31,13 @@
               <p class="profile__subtitle">Исследователь океана</p>
             </div>
             
-            <button class="edit edit__button"></button>
+            <button class="profile__button"></button>
 
           </div>
 
         </div>
        
-        <button class="add add__button" ></button>
+        <button class="profile__add" ></button>
      
       </section>
 
@@ -99,31 +99,30 @@
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
 
- </div>
-
-<div class="form">
-  <div class="form__body">
+    <div class="popup">
+      <div class="popup__container">
+        
+        <img class="popup__close" src="./images/Close-Icon.png" alt="Крестик">
     
-    <img class="form__close" src="./images/Close Icon.png" alt="Крестик">
+        <div class="form">
+    
+          <h2 class="form__heading">Редактировать профиль</h2>
+    
+          <form class="fields">
+            <input class="field" type="text" name="username" id="username" value="" tabindex="1" placeholder="Поле для ввода">
+            <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="Поле для ввода">
+            <button class="submit" type="submit">Сохранить</button>
+          </form>
 
-    <div class="form__content">
-
-      <h2 class="form__heading">Редактировать профиль</h2>
-
-      <form class="fields">
-        <input class="field" type="text"></input>
-        <input class="field" type="text"></input>
-      </form>
-
-       <button class="submit">Сохранить</button>
-       
+          
+        </div>
+    
+      </div>
     </div>
 
-  </div>
-</div>
+ </div>
 
-
-<script src=""></script>
+<script src="./scripts/index.js"></script>
 
 </body>
 </html>
