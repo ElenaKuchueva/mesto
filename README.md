@@ -1,12 +1,12 @@
 # Проект: Место 
-
-Проект Место предназначен для демонтсрации:  
+[GitHub Pages](https://elenakuchueva.github.io/mesto/index.html)  
+## Проект Место предназначен для демонтсрации:  
 * владения адаптативной вертской;  
 * работы  модального окна (поп-ап) за счет подключения к нему скрипта.  
 
-[GitHub Pages](https://elenakuchueva.github.io/mesto/index.html)
 
-В проекте были использованы: 
+
+## В проекте были использованы: 
 * [макет в Figma](https://www.figma.com/file/2cn9N9jSkmxD84oJik7xL7/JavaScript.-Sprint-4?node-id=0%3A1);  
 * метод БЭМ Nested;    
 * Css-директивы @import;  
@@ -16,6 +16,5 @@
 * grid-layout;   
 * брейкпоинты (1279px , 1023px , 767px , 320px);  
 * JS;    
-* 
 * Сайт ориентирован для слабовидящией категории лиц. 
 
