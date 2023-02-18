@@ -25,5 +25,6 @@ function handleFormSubmit (evt) {
   evt.preventDefault();
   profileTitle.textContent = userName.value;
   profileSubtitle.textContent = occupation.value;
+  close();
 };
 formElement.addEventListener('submit', handleFormSubmit);
