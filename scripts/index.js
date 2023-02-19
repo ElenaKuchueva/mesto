@@ -1,4 +1,4 @@
-let editProfileButton = document.querySelector('.profile__button');
+let editProfileButton = document.querySelector('.profile__edit');
 let editPopup = document.querySelector('.popup');
 let userName = document.querySelector('#username');
 let occupation = document.querySelector('#occupation');
@@ -11,9 +11,7 @@ function close() {
   editPopup.classList.remove('popup_opened');
 };
 
-popupClose.addEventListener ('click',function() {
-  close();
-});
+popupClose.addEventListener ('click',close);
 
 editProfileButton.addEventListener ('click', function() {
   editPopup.classList.add('popup_opened');
