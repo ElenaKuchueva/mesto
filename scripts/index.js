@@ -18,12 +18,12 @@ const popupImage = document.querySelector('.popup-image');
 const popupImageCard = document.querySelector('.popup-image__image');
 const popupImageTitle = document.querySelector('.popup-image__title');
 
-//шаблон: закрыть поп-апа
+//шаблон: закрыть поп-ап
 function close() {
   editPopup.classList.remove('popup_opened');
 };
 
-//закрыть поп-апа
+//закрыть поп-ап
 popupClose.addEventListener ('click',close);
 
 //открыть поп-апа
@@ -80,9 +80,9 @@ const createCard = function (card) {
   cardHeading.textContent = card.name;
   const cardImage = newCard.querySelector('.element__image');
   cardImage.setAttribute('src',card.link);
-  elements.append(newCard);
+  elements.prepend(newCard);
   //deleteCard;
-  //like;
+  like();
   //openFullImage;
   //return newCard;
 };
@@ -97,10 +97,12 @@ const deleteCard = delate.addEventListener('click', () => {
 
 //лайк
 const icon = document.querySelector('.element__icon');
-const like = icon.addEventListener('click', (evt) => {
-const eventTarget = evt.target;
-eventTarget.classList.toggle("element__icon_active");
+function like(){
+  icon.addEventListener('click', (evt) => {
+  const eventTarget = evt.target;
+  eventTarget.classList.toggle("element__icon_active");
 });
+} 
 
 // открыть форму для создания новой карточки
 AddProfileButton.addEventListener ('click', ()=> {
