@@ -31,54 +31,18 @@
     </section>
 
     <section class="elements">
-      <article class="element">
-        <img src="./images/Karachaevsk.png" class="element__image" alt="Старый кирпичный  разрушенный храм.">
-        <div class="element__description">
-          <h2 class="element__title">Карачаевск</h2>
-          <button class="element__icon" type="button" aria-label="Нравится."></button>
-        </div>
-      </article>
 
-      <article class="element">
-        <img src="./images/Elbrus.png" class="element__image" alt="Гора на фоне оранжевого восхода солнца.">
-        <div class="element__description">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__icon" type="button" aria-label="Нравится."></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/dombai.png" class="element__image" alt="Гора на фоне восхода.">
-        <div class="element__description">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__icon" type="button" aria-label="Нравится."></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/Karachaevsk.png" class="element__image" alt="Старый кирпичный разрушенный храм.">
-        <div class="element__description">
-          <h2 class="element__title">Карачаевск</h2>
-          <button class="element__icon" type="button" aria-label="Нравится."></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/Elbrus.png" class="element__image" alt="Гора на фоне оранжевого восхода солнца.">
-        <div class="element__description">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__icon" type="button" aria-label="Нравится."></button>
-        </div>
-      </article>
-
-      <article class="element">
-        <img src="./images/dombai.png" class="element__image" alt="Гора на фоне восхода.">
-        <div class="element__description">
-          <h2 class="element__title">Домбай</h2>
-          <button class="element__icon" type="button" aria-label="Нравится."></button>
-        </div>
-      </article>
-
+      <template id="card">
+        <article class="element">
+          <button class="element__delate" type="button" aria-label="Удалить."></button>
+          <img class="element__image">
+          <div class="element__description">
+            <h2 class="element__title"></h2>
+            <button class="element__icon" type="button" aria-label="Нравится."></button>
+          </div>
+        </article>
+      </template>
+  
     </section>
   </main>
 
@@ -86,7 +50,7 @@
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
   </footer>
 
-  <div class="popup">
+  <div class="popup" id="editPopup">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Закрыть."></button>
       <div class="form">
@@ -100,6 +64,27 @@
     </div>
   </div>
 
+  <div class="popup" id="addPopup">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Закрыть."></button>
+      <div class="form">
+        <h2 class="form__heading">Новое место</h2>
+        <form class="fields" name="fields" method="post">
+          <input class="field" type="text" name="place" id="place" value="" tabindex="1" placeholder="Название">
+          <input class="field" type="text" name="link" id="link" value="" tabindex="2" placeholder="Ссылка на картинку">
+          <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-image">
+    <div class="popup-image__container">
+      <button class="popup__close" type="button" aria-label="Закрыть."></button>
+      <img class="popup-image__image">
+      <h2 class="popup-image__title"></h2>
+    </div>
+  </div>
   <script src="./scripts/index.js"></script>
 
 </body>

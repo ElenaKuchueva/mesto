@@ -1,0 +1,7 @@
+.popup-image__container {
+  max-width: 75vw;
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
