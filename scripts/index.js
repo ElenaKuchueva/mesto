@@ -122,9 +122,9 @@ cards.forEach(function(createCard) {
 
 //форма для создания новой карточки
 function handleFormEddSubmit (evt) {
+  evt.preventDefault();
 const addPopupInputNewPlace = document.querySelector('#newPlace');
 const addPopupInputLink = document.querySelector('#link');
-evt.preventDefault();
 addNewCard(
   {name: addPopupInputNewPlace.value,
    link: addPopupInputLink.value
@@ -132,7 +132,6 @@ addNewCard(
 evt.target.reset();
 closeAddProfile();
 };
-
 //отправка формы
 formAddPopup.addEventListener('submit', handleFormEddSubmit);
 
