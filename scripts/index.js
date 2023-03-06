@@ -45,7 +45,7 @@ const userName = document.querySelector('#username');
 const occupation = document.querySelector('#occupation');
 //поп-ап: добавить карточку
 const addPopup = document.querySelector('#addPopup');
-const formAddPopup = document.querySelector('.fields__addPopup');
+const formAddPopup = document.querySelector('.fields_addPopup');
 const buttonCLoseAddProfile = document.querySelector('.popup__close_addPopup');
 //поп-ап: открыть картинку на весь экран
 const popupImage = document.querySelector('#fullImage');
