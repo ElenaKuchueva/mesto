@@ -14,4 +14,5 @@
 
 .element__delate:hover {
   opacity: .5;
+  cursor: pointer;
 }

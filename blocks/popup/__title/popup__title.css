@@ -6,3 +6,24 @@
     line-height: 27px;
     margin: 0;
 }
+
+@media all and (max-width: 860px) {
+    .popup__title {
+      font-size: 20px;
+      line-height: 25px;
+    }
+  }
+
+  @media all and (max-width: 700px) {
+    .popup__title {
+      font-size: 16px;
+      line-height: 21px;
+    }
+  }
+
+  @media all and (max-width: 500px) {
+    .popup__title {
+        font-size: 12px;
+        line-height: 15px;
+    }
+  }
