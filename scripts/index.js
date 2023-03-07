@@ -31,25 +31,25 @@ const cards = [
   }
 ];
 //профиль
-const profileButtonEdit = document.querySelector('.profile__edit');
-const profileButtonAdd = document.querySelector('.profile__add');
+const profileEditButton = document.querySelector('.profile__edit');
+const profileAddButton = document.querySelector('.profile__add');
 const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 //поп-ап: измененить профиля
 const popupEdit = document.querySelector('#popupEdit');
 const popupEditCloseButton = document.querySelector('.popup__close');
 const popupEditForm = document.forms['popupEdit-form'];
-const popupEditFormInputUserName = document.querySelector('#username');
-const popupEditFormInputOccupation = document.querySelector('#occupation');
+const popupEditFormUserNameInput = document.querySelector('#username');
+const popupEditFormOccupationInput = document.querySelector('#occupation');
 //поп-ап: добавить карточку
 const popupAdd = document.querySelector('#popupAdd');
 const popupAddform = document.forms['PopupAdd-Form'];
-const buttonCLosePopupAdd = document.querySelector('.popup__close_popupAdd');
-const popupAddInputNewPlace = document.querySelector('#newPlace');
-const popupAddInputLink = document.querySelector('#link');
+const PopupAddCloseButton = document.querySelector('.popup__close_popupAdd');
+const popupAddNewPlaceInput = document.querySelector('#newPlace');
+const popupAddLinkInput = document.querySelector('#link');
 //поп-ап: открыть картинку на весь экран
 const popupImage = document.querySelector('#fullImage');
-const popupImageButtonClose = document.querySelector('.popup__close_full-image');
+const popupImageCloseButton = document.querySelector('.popup__close_full-image');
 const popupImagePic = document.querySelector('.popup__image');
 const popupImageTitle = document.querySelector('.popup__title');
 //шаблон создания корточки
@@ -65,10 +65,10 @@ function closePopup(popup) {
 };
 
 //открыть поп-апа изменения профиля
-profileButtonEdit.addEventListener('click', function () {
+profileEditButton.addEventListener('click', function () {
   openPopup(popupEdit);
-  popupEditFormInputUserName.value = profileTitle.textContent;
-  popupEditFormInputOccupation.value = profileSubtitle.textContent;
+  popupEditFormUserNameInput.value = profileTitle.textContent;
+  popupEditFormOccupationInput.value = profileSubtitle.textContent;
 });
 //закрыть поп-ап изменения профиля
 popupEditCloseButton.addEventListener('click', () => closePopup(popupEdit));
@@ -76,8 +76,8 @@ popupEditCloseButton.addEventListener('click', () => closePopup(popupEdit));
 // форма изменения профиля пользователя
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
-  profileTitle.textContent = popupEditFormInputUserName.value;
-  profileSubtitle.textContent = popupEditFormInputOccupation.value;
+  profileTitle.textContent = popupEditFormUserNameInput.value;
+  profileSubtitle.textContent = popupEditFormOccupationInput.value;
   closePopup(popupEdit);
 };
 popupEditForm.addEventListener('submit', handleProfileFormSubmit);
@@ -128,8 +128,8 @@ function handleFormAddSubmit(evt) {
   evt.preventDefault();
   addNewCard(
     {
-      name: popupAddInputNewPlace.value,
-      link: popupAddInputLink.value
+      name: popupAddNewPlaceInput.value,
+      link: popupAddLinkInput.value
     });
   evt.target.reset();
   closePopup(popupAdd);
@@ -137,11 +137,11 @@ function handleFormAddSubmit(evt) {
 popupAddform.addEventListener('submit', handleFormAddSubmit);
 
 // открыть форму для создания новой карточки
-profileButtonAdd.addEventListener('click', () => {
+profileAddButton.addEventListener('click', () => {
   openPopup(popupAdd);
 });
-
-buttonCLosePopupAdd.addEventListener('click', () => closePopup(popupAdd));
+// закрыть форму для создания новой карточки
+PopupAddCloseButton.addEventListener('click', () => closePopup(popupAdd));
 
 //поп-ап - открыть картинку карточки
 function setOpenFullImageHandler(element) {
@@ -154,4 +154,4 @@ function setOpenFullImageHandler(element) {
     popupImageTitle.textContent = cardHeading.textContent;
   });
 };
-popupImageButtonClose.addEventListener('click', () => closePopup(popupImage));
+popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
