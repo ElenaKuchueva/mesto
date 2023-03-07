@@ -48,12 +48,12 @@
     <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
   </footer>
 
-  <div class="popup" id="editPopup">
+  <div class="popup" id="popupEdit">
     <div class="popup__container">
       <button class="popup__close" type="button" aria-label="Закрыть."></button>
       <div class="form">
         <h2 class="form__heading">Редактировать профиль</h2>
-        <form class="fields" name="fields" method="post">
+        <form class="fields" name="popupEdit-form" method="post">
           <input class="field" type="text" name="username" id="username" value="" tabindex="1" placeholder="Имя">
           <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="О себе">
           <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
@@ -62,12 +62,12 @@
     </div>
   </div>
 
-  <div class="popup" id="addPopup">
+  <div class="popup" id="popupAdd">
     <div class="popup__container">
-      <button class="popup__close popup__close_addPopup" type="button" aria-label="Закрыть."></button>
+      <button class="popup__close popup__close_popupAdd" type="button" aria-label="Закрыть."></button>
       <div class="form">
         <h2 class="form__heading">Новое место</h2>
-        <form class="fields fields_addPopup" name="fields" method="post">
+        <form class="fields" name="PopupAdd-Form" method="post">
           <input class="field" type="text" name="place" id="newPlace" value="" tabindex="1" placeholder="Название">
           <input class="field" type="text" name="link" id="link" value="" tabindex="2" placeholder="Ссылка на картинку">
           <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
