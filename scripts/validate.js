@@ -73,5 +73,5 @@ enableValidation({
   inactiveButtonClass: 'submit_inactive',
   inputErrorClass: 'field_type_error',
   inputMessageErrorClass: 'field_message_error_active',
-  errorClass: '_message-error'
+  errorClass: '-message-error'
 });
