@@ -30,6 +30,8 @@ const cards = [
     alt: 'Озеро подо льдом'
   }
 ];
+
+//const popup = document.querySelector('.popup');
 //профиль
 const profileEditButton = document.querySelector('.profile__edit');
 const profileAddButton = document.querySelector('.profile__add');
@@ -55,6 +57,7 @@ const popupImageTitle = document.querySelector('.popup__title');
 //шаблон создания корточки
 const elements = document.querySelector('.elements');
 
+
 //шаблон: открыть любой поп-ап
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -63,6 +66,33 @@ function openPopup(popup) {
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 };
+
+//обработать событие нажатие кнопки Esc
+function closeEscPopup(popupElement){
+document.addEventListener('keydown', (evt) => {
+   if(evt.key === 'Escape') {
+ closePopup(popupElement);
+  }
+});
+};
+
+function closeOverlayPopup(popupElement){
+  document.addEventListener('mousedown', (evt) => {
+     if(evt.target.classList.contains('popup')) {
+   closePopup(popupElement);
+    }
+  });
+ };
+
+//перебрать все попапы и применить к ним событие нажатие кнопки Esc
+function closePopups() {
+  const popups = document.querySelectorAll('.popup');
+  popups.forEach((popup) => {
+    closeEscPopup(popup);
+    closeOverlayPopup(popup);
+  });
+};
+
 
 //открыть поп-апа изменения профиля
 profileEditButton.addEventListener('click', function () {
@@ -155,3 +185,5 @@ function setOpenFullImageHandler(element) {
   });
 };
 popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
+
+closePopups();

@@ -53,9 +53,11 @@
       <button class="popup__close" type="button" aria-label="Закрыть."></button>
       <div class="form">
         <h2 class="form__heading">Редактировать профиль</h2>
-        <form class="fields" name="popupEdit-form" method="post">
-          <input class="field" type="text" name="username" id="username" value="" tabindex="1" placeholder="Имя">
-          <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="О себе">
+        <form class="fields" name="popupEdit-form" method="post" novalidate>
+          <input class="field" type="text" name="username" id="username" value="" tabindex="1" placeholder="Имя" minlength="2" maxlength="40" required>
+          <span class="username_message_error field_message_error"></span>
+          <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="О себе" minlength="2" maxlength="200" required>
+          <span class="occupation_message_error field_message_error"></span>
           <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
         </form>
       </div>
@@ -67,9 +69,11 @@
       <button class="popup__close popup__close_popupAdd" type="button" aria-label="Закрыть."></button>
       <div class="form">
         <h2 class="form__heading">Новое место</h2>
-        <form class="fields" name="PopupAdd-Form" method="post">
-          <input class="field" type="text" name="place" id="newPlace" value="" tabindex="1" placeholder="Название">
-          <input class="field" type="text" name="link" id="link" value="" tabindex="2" placeholder="Ссылка на картинку">
+        <form class="fields" name="PopupAdd-Form" method="post" novalidate>
+          <input class="field" type="text" name="place" id="newPlace" value="" tabindex="1" placeholder="Название" minlength="2" maxlength="30" required>
+          <span class="newPlace_message_error field_message_error"></span>
+          <input class="field" type="url" name="link" id="link" value="" tabindex="2" placeholder="Ссылка на картинку" required>
+          <span class="link_message_error field_message_error"></span>
           <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
         </form>
       </div>
@@ -86,6 +90,6 @@
 
 
   <script src="./scripts/index.js"></script>
-
+  <script src="./scripts/validate.js"></script>
 </body>
 </html>
