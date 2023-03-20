@@ -31,7 +31,6 @@ const cards = [
   }
 ];
 
-//const popup = document.querySelector('.popup');
 //профиль
 const profileEditButton = document.querySelector('.profile__edit');
 const profileAddButton = document.querySelector('.profile__add');
@@ -39,14 +38,14 @@ const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle');
 //поп-ап: измененить профиля
 const popupEdit = document.querySelector('#popupEdit');
-const popupEditCloseButton = document.querySelector('.popup__close');
+const popupEditCloseButton = document.querySelector('.popup__close_popup-edit');
 const popupEditForm = document.forms['popupEdit-form'];
 const popupEditFormUserNameInput = document.querySelector('#username');
 const popupEditFormOccupationInput = document.querySelector('#occupation');
 //поп-ап: добавить карточку
 const popupAdd = document.querySelector('#popupAdd');
 const popupAddform = document.forms['PopupAdd-Form'];
-const PopupAddCloseButton = document.querySelector('.popup__close_popupAdd');
+const popupAddCloseButton = document.querySelector('.popup__close_popup-add');
 const popupAddNewPlaceInput = document.querySelector('#newPlace');
 const popupAddLinkInput = document.querySelector('#link');
 //поп-ап: открыть картинку на весь экран
@@ -57,42 +56,35 @@ const popupImageTitle = document.querySelector('.popup__title');
 //шаблон создания корточки
 const elements = document.querySelector('.elements');
 
+//обработать событие нажатие кнопки Esc
+function closeEscPopup(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+};
+
+//обработать событие клика по overlay
+function closeOverlayPopup(evt) {
+  if (evt.target.classList.contains('popup')) {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+};
 
 //шаблон: открыть любой поп-ап
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closeEscPopup);
+  document.addEventListener('mousedown', closeOverlayPopup);
 };
+
 //шаблон: закрыть любой  поп ап
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeEscPopup);
+  document.removeEventListener('mousedown', closeOverlayPopup);
 };
-
-//обработать событие нажатие кнопки Esc
-function closeEscPopup(popupElement){
-document.addEventListener('keydown', (evt) => {
-   if(evt.key === 'Escape') {
- closePopup(popupElement);
-  }
-});
-};
-
-function closeOverlayPopup(popupElement){
-  document.addEventListener('mousedown', (evt) => {
-     if(evt.target.classList.contains('popup')) {
-   closePopup(popupElement);
-    }
-  });
- };
-
-//перебрать все попапы и применить к ним событие нажатие кнопки Esc
-function closePopups() {
-  const popups = document.querySelectorAll('.popup');
-  popups.forEach((popup) => {
-    closeEscPopup(popup);
-    closeOverlayPopup(popup);
-  });
-};
-
 
 //открыть поп-апа изменения профиля
 profileEditButton.addEventListener('click', function () {
@@ -171,7 +163,7 @@ profileAddButton.addEventListener('click', () => {
   openPopup(popupAdd);
 });
 // закрыть форму для создания новой карточки
-PopupAddCloseButton.addEventListener('click', () => closePopup(popupAdd));
+popupAddCloseButton.addEventListener('click', () => closePopup(popupAdd));
 
 //поп-ап - открыть картинку карточки
 function setOpenFullImageHandler(element) {
@@ -185,5 +177,3 @@ function setOpenFullImageHandler(element) {
   });
 };
 popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
-
-closePopups();

@@ -17,28 +17,38 @@ const hideInputError = (formElement, inputElement, inputErrorClass, inputMessage
 //шаблон: проверка на валидность
 const isValid = (formElement, inputElement, inputErrorClass, inputMessageErrorClass, errorClass) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement,inputElement.validationMessage, inputErrorClass, inputMessageErrorClass, errorClass);
+    showInputError(formElement, inputElement, inputElement.validationMessage, inputErrorClass, inputMessageErrorClass, errorClass);
   } else {
     hideInputError(formElement, inputElement, inputErrorClass, inputMessageErrorClass, errorClass);
- }
+  }
 };
 
 //проверка на невалидность полей
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
-});
+  });
+};
+
+//неактивная кнопка формы
+const disabledFormButton = (buttonElement, inactiveButtonClass) => {
+  buttonElement.classList.add(inactiveButtonClass);
+  buttonElement.setAttribute('disabled', true);
+};
+
+//активная кнопка формы
+const enabledFormButton = (buttonElement, inactiveButtonClass) => {
+  buttonElement.classList.remove(inactiveButtonClass);
+  buttonElement.removeAttribute('disabled');
 };
 
 //изменение цвета кнопки
 const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   if (hasInvalidInput(inputList)) {
-  buttonElement.classList.add(inactiveButtonClass);
-  buttonElement.setAttribute('disabled', true);
-} else {
-  buttonElement.classList.remove(inactiveButtonClass);
-  buttonElement.removeAttribute('disabled');
-}
+    disabledFormButton(buttonElement, inactiveButtonClass);
+  } else {
+    enabledFormButton(buttonElement, inactiveButtonClass);
+  }
 };
 
 //добавить всем полям слушатель
@@ -47,31 +57,32 @@ const setEventListeners = (formElement, inputSelector, submitButtonSelector, ina
   const buttonElement = formElement.querySelector(submitButtonSelector);
   toggleButtonState(inputList, buttonElement, inactiveButtonClass);
   formElement.addEventListener('reset', () => {
-    buttonElement.classList.add(inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+    disabledFormButton(buttonElement, inactiveButtonClass);
   });
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', () => {
       isValid(formElement, inputElement, inputErrorClass, inputMessageErrorClass, errorClass);
       toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+    });
   });
-});
 };
 
 //добавить всем формам слушатель
 const enableValidation = (config) => {
-    const formList = Array.from(document.querySelectorAll(config.formSelector));
-    formList.forEach((formElement) => {
-      setEventListeners(formElement, config.inputSelector, config.submitButtonSelector, config.inactiveButtonClass, config.inputErrorClass, config.inputMessageErrorClass, config.errorClass);
-    });
-  };
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    setEventListeners(formElement, config.inputSelector, config.submitButtonSelector, config.inactiveButtonClass, config.inputErrorClass, config.inputMessageErrorClass, config.errorClass);
+  });
+};
 
-enableValidation({
+const config = {
   formSelector: '.fields',
   inputSelector: '.field',
   submitButtonSelector: '.submit',
   inactiveButtonClass: 'submit_inactive',
-  inputErrorClass: 'field_type_error',
-  inputMessageErrorClass: 'field_message_error_active',
+  inputErrorClass: 'field__type_error',
+  inputMessageErrorClass: 'field__type_error_message-active',
   errorClass: '-message-error'
-});
+};
+
+enableValidation(config);
