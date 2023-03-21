@@ -80,8 +80,8 @@ const config = {
   inputSelector: '.field',
   submitButtonSelector: '.submit',
   inactiveButtonClass: 'submit_inactive',
-  inputErrorClass: 'field__type_error',
-  inputMessageErrorClass: 'field__type_error_message-active',
+  inputErrorClass: 'field_type_error',
+  inputMessageErrorClass: 'field-message-error_active',
   errorClass: '-message-error'
 };
 
