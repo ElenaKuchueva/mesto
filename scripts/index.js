@@ -1,4 +1,9 @@
-const cards = [
+import {FormValidator, validation} from './FormValidator.js';
+import {Card} from './Card.js';
+
+
+
+export const cards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
@@ -104,46 +109,15 @@ function handleProfileFormSubmit(evt) {
 };
 popupEditForm.addEventListener('submit', handleProfileFormSubmit);
 
-//удаление карточки
-function setDeleteHandler(element) {
-  const delate = element.querySelector('.element__delate');
-  delate.addEventListener('click', () => {
-    const delateElement = delate.closest('.element');
-    delateElement.remove();
-  });
-};
-
-//лайк
-function setLikeHandler(element) {
-  const icon = element.querySelector('.element__icon');
-  icon.addEventListener('click', (evt) => {
-    const eventTarget = evt.target;
-    eventTarget.classList.toggle("element__icon_active");
-  });
-};
-
-//шаблон карточки
-function createCard({ name, link, alt }) {
-  const card = document.querySelector('#card').content.cloneNode(true);
-  const cardHeading = card.querySelector('.element__title');
-  cardHeading.textContent = name;
-  const cardImage = card.querySelector('.element__image');
-  cardImage.setAttribute('src', link);
-  cardImage.setAttribute('alt', alt);
-  setLikeHandler(card);
-  setDeleteHandler(card);
-  setOpenFullImageHandler(card, name, link, alt);
-  return card;
-};
-
-//добавление новой карточки
-const addNewCard = (cardFilling) => {
-  const newCard = createCard(cardFilling);
+//добавить новую карточку
+const addNewCard = (card) => {
+  const cardGenerate = new Card(card, "#card");
+  const newCard = cardGenerate.generateCard();
   elements.prepend(newCard);
 };
 
 //перебрать карточки и вывести на старте
-cards.forEach(addNewCard);
+cards.forEach(card => addNewCard(card));
 
 //форма для создания новой карточки
 function handleFormAddSubmit(evt) {
@@ -164,16 +138,5 @@ profileAddButton.addEventListener('click', () => {
 });
 // закрыть форму для создания новой карточки
 popupAddCloseButton.addEventListener('click', () => closePopup(popupAdd));
-
-//поп-ап - открыть картинку карточки
-function setOpenFullImageHandler(element) {
-  const cardImage = element.querySelector('.element__image');
-  const cardHeading = element.querySelector('.element__title');
-  cardImage.addEventListener('click', (evt) => {
-    openPopup(popupImage);
-    popupImagePic.src = evt.target.src;
-    popupImagePic.alt = evt.target.alt;
-    popupImageTitle.textContent = cardHeading.textContent;
-  });
-};
+// закрыть поп-ап с картинкой
 popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
