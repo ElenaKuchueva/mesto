@@ -1,8 +1,6 @@
 import {FormValidator, validation} from './FormValidator.js';
 import {Card} from './Card.js';
 
-
-
 export const cards = [
   {
     name: 'Архыз',
@@ -84,6 +82,14 @@ function openPopup(popup) {
   document.addEventListener('mousedown', closeOverlayPopup);
 };
 
+//обработчик клика по картинке карточки
+const handlerImageClick = (name, link) => {
+  popupImageTitle.textContent = name;
+  popupImagePic.src = link;
+  popupImagePic.alt = name;
+  openPopup(popupImage);
+  
+};
 //шаблон: закрыть любой  поп ап
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
@@ -111,7 +117,7 @@ popupEditForm.addEventListener('submit', handleProfileFormSubmit);
 
 //добавить новую карточку
 const addNewCard = (card) => {
-  const cardGenerate = new Card(card, "#card");
+  const cardGenerate = new Card(card, "#card", handlerImageClick);
   const newCard = cardGenerate.generateCard();
   elements.prepend(newCard);
 };

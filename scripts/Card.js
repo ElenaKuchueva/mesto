@@ -1,9 +1,10 @@
 class Card {
-    constructor(card, templateSelector) {
+    constructor(card, templateSelector, handlerImageClick) {
         this.name = card.name;
         this.link = card.link;
         this.alt = card.alt;
         this.templateSelector = templateSelector;
+        this.handlerImageClick = handlerImageClick;
     }
   
     //клонируем темплейт-элемент
@@ -38,12 +39,10 @@ class Card {
       //открываем поп-ап с картинкой
       _setOpenFullImageHandler() {
         const cardImage = this.element.querySelector('.element__image');
-        const cardHeading = this.element.querySelector('.element__title');
-        cardImage.addEventListener('click', (evt) => {
-          openPopup(popupImage);
-          popupImagePic.src = evt.target.src;
-          popupImagePic.alt = evt.target.alt;
-          popupImageTitle.textContent = cardHeading.textContent;
+    
+        cardImage.addEventListener('click', () => {
+          this.handlerImageClick(this.name, this.link);
+          console.log(this.link);
         });
     }
   
@@ -52,7 +51,6 @@ class Card {
         this._setLikeHandler();
         this._setDeleteHandler();
         this._setOpenFullImageHandler();
-  
         
         this.element.querySelector('.element__image').setAttribute('src', this.link);
         this.element.querySelector('.element__title').textContent = this.name;
@@ -61,11 +59,5 @@ class Card {
         return this.element;
       }
   };
-  
-//   const addNewCard = (card) => {
-//     const cardGenerate = new Card(card, "#card");
-//     const newCard = cardGenerate.generateCard();
-//     elements.prepend(newCard);
-//   };
 
   export {Card};
