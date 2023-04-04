@@ -67,12 +67,19 @@ function closeEscPopup(evt) {
   }
 };
 
+// //обработать событие клика по overlay
+// function closeOverlayPopup(evt) {
+//   if (evt.target.classList.contains('popup')) {
+//     const openedPopup = document.querySelector('.popup_opened');
+//     closePopup(openedPopup);
+//   }
+// };
+
 //обработать событие клика по overlay
 function closeOverlayPopup(evt) {
   if (evt.target.classList.contains('popup')) {
-    const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);
-  }
+      closePopup(evt.target);
+    }
 };
 
 //шаблон: открыть любой поп-ап
