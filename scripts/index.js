@@ -115,15 +115,26 @@ function handleProfileFormSubmit(evt) {
 };
 popupEditForm.addEventListener('submit', handleProfileFormSubmit);
 
-//добавить новую карточку
-const addNewCard = (card) => {
-  const cardGenerate = new Card(card, "#card", handlerImageClick);
-  const newCard = cardGenerate.generateCard();
+// //добавить новую карточку
+// const addNewCard = (card) => {
+//   const cardGenerate = new Card(card, "#card", handlerImageClick);
+//   const newCard = cardGenerate.generateCard();
+//   elements.prepend(newCard);
+// };
+
+function createCard(cardElement) {
+  const card = new Card(cardElement, "#card", handlerImageClick);
+  const cardGenerate = card.generateCard();
+  return cardGenerate;
+};
+
+const addNewCard = (cardElement) => {
+  const newCard = createCard(cardElement);
   elements.prepend(newCard);
 };
 
 //перебрать карточки и вывести на старте
-cards.forEach(card => addNewCard(card));
+cards.forEach(cardElement => addNewCard(cardElement));
 
 //форма для создания новой карточки
 function handleFormAddSubmit(evt) {
