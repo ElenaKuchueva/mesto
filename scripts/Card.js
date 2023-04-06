@@ -1,10 +1,12 @@
 class Card {
-    constructor(card, templateSelector, handlerImageClick) {
+    constructor(card, templateSelector, handlerImageClick, cardImage, buttonDelate) {
         this.name = card.name;
         this.link = card.link;
         this.alt = card.alt;
         this.templateSelector = templateSelector;
         this.handlerImageClick = handlerImageClick;
+        this.cardImage = cardImage;
+        this.buttonDelate = buttonDelate;
     }
   
     //клонируем темплейт-элемент
@@ -16,48 +18,47 @@ class Card {
           .cloneNode(true);
     
         return cardElement;
-      }
-      
-      //обработчик лайка для всех карточек
-      _setLikeHandler() {
-        const icon = this.element.querySelector('.element__icon');
-        icon.addEventListener('click', (evt) => {
-          const eventTarget = evt.target;
-          eventTarget.classList.toggle("element__icon_active");
-        });
       };
-    
-      //обработчик удаления
-      _setDeleteHandler() {
-        const delate = this.element.querySelector('.element__delate');
-        delate.addEventListener('click', () => {
-          const delateElement = delate.closest('.element');
-          delateElement.remove();
-        });
-      }
-  
+
+    _setLikeHandler(evt) {
+        const eventTarget = evt.target;
+        eventTarget.classList.toggle("element__icon_active");
+      };
+
+    _setDeleteHandler() {
+        const delateElement = this.element.querySelector(this.buttonDelate).closest('.element');
+        delateElement.remove();
+      };
+
       //открываем поп-ап с картинкой
-      _setOpenFullImageHandler() {
-        const cardImage = this.element.querySelector('.element__image');
-    
+    _setOpenFullImageHandler() {
+      const cardImage = this.element.querySelector(this.cardImage);
         cardImage.addEventListener('click', () => {
-          this.handlerImageClick(this.name, this.link);
-          console.log(this.link);
-        });
-    }
-  
-      generateCard() {
-        this.element = this._getTemplate();
-        this._setLikeHandler();
-        this._setDeleteHandler();
-        this._setOpenFullImageHandler();
+        this.handlerImageClick(this.name, this.link);
+      });
+    };
+
+    _setEventListeners() {
+      this.element.querySelector('.element__icon').addEventListener('click', (evt) => this._setLikeHandler(evt));
+
+      this.element.querySelector(this.buttonDelate).addEventListener('click', () => this._setDeleteHandler());
+
+      this.element.querySelector(this.cardImage).addEventListener('click', () => {
+        this.handlerImageClick(this.name, this.link);
+      });
+    };
+
+    generateCard() {
+      this.element = this._getTemplate();
         
-        this.element.querySelector('.element__image').setAttribute('src', this.link);
-        this.element.querySelector('.element__title').textContent = this.name;
-        this.element.querySelector('.element__image').setAttribute('alt', this.alt);
-    
+      this.element.querySelector(this.cardImage).setAttribute('src', this.link);
+      this.element.querySelector('.element__title').textContent = this.name;
+      this.element.querySelector('.element__image').setAttribute('alt', this.alt);
+
+      this._setEventListeners();
+
         return this.element;
-      }
+      };
   };
 
   export {Card};

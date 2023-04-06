@@ -9,19 +9,32 @@ const config = {
   };
   
   class FormValidator {
-    constructor(config) {
+    constructor(config, errorMessage) {
     this.config = config;
-    //this.enableValidation(config);
+    
+    // this._formElement = formElement;
+    //this._inputElement = inputElement;
+    // this._buttonElement = buttonElement;
+    // this._inputList = inputList;
+    this.errorMessage = errorMessage;
     }
   
-    //шаблон: показать ошибку валидации
-   _showInputError(formElement, inputElement, errorMessage) {
+  //   //шаблон: показать ошибку валидации
+  //  _showInputError(formElement, inputElement, errorMessage) {
+  //   const fieldErrorMessage = formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
+  //   inputElement.classList.add(this.config.inputErrorClass);
+  //   fieldErrorMessage.textContent = errorMessage;
+  //   fieldErrorMessage.classList.add(this.config.inputMessageErrorClass);
+  // };
+  
+   //шаблон: показать ошибку валидации
+   _showInputError(formElement, inputElement) {
     const fieldErrorMessage = formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
     inputElement.classList.add(this.config.inputErrorClass);
-    fieldErrorMessage.textContent = errorMessage;
+    fieldErrorMessage.textContent =  this.errorMessage;
     fieldErrorMessage.classList.add(this.config.inputMessageErrorClass);
   };
-  
+
   //шаблон: скрыть ошибку валидации
    _hideInputError(formElement, inputElement) {
     const fieldErrorMessage = formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
@@ -38,6 +51,7 @@ const config = {
       this._hideInputError(formElement, inputElement);
     }
   };
+
   
   //проверка на невалидность полей
   _hasInvalidInput(inputList) {
@@ -67,6 +81,15 @@ const config = {
     }
   };
   
+  // resetValidation() {
+  //   this._toggleButtonState(); <== управляем кнопкой ==
+
+  //   this._inputList.forEach((inputElement) => {
+  //     this._hideError(inputElement) <==очищаем ошибки ==
+  //   });
+
+  // }
+
   //добавить всем полям слушатель
   _setEventListeners(formElement) {
     const inputList = Array.from(formElement.querySelectorAll(this.config.inputSelector));
@@ -91,8 +114,5 @@ const config = {
     });
   };
   }
-  
-const validation = new FormValidator(config);
-validation.enableValidation(config);
 
-export {FormValidator, validation};
+ export {FormValidator, config};
