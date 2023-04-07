@@ -58,13 +58,15 @@ const popupImageTitle = document.querySelector('.popup__title');
 //место создания карточек
 const elements = document.querySelector('.elements');
 
-
 //валидация
-//создание нового экземпляра валидации
-const validation = new FormValidator(config);
+//создание нового экземпляра валидации для формы изменения профиля
+const validation = new FormValidator(config, popupEditForm);
 //вызов метода активирования валидации форм
-validation.enableValidation(config);
+validation.enableValidation();
 
+//создание нового экземпляра валидации для формы добавлени карточки
+const validationPopupAddform = new FormValidator(config, popupAddform);
+validationPopupAddform.enableValidation();
 
 //закрыть поп ап по нажатию Esc, по overlay
 //обработать событие нажатие кнопки Esc
