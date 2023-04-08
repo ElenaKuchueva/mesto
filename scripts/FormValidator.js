@@ -10,27 +10,27 @@ const config = {
   
 class FormValidator {
   constructor(config, formElement) {
-  this.config = config;
-  this.formElement = formElement;
+    this.config = config;
+    this.formElement = formElement;
 
-  this._inputList = Array.from(this.formElement.querySelectorAll(this.config.inputSelector));
-  this._buttonElement = this.formElement.querySelector(this.config.submitButtonSelector);
+    this._inputList = Array.from(this.formElement.querySelectorAll(this.config.inputSelector));
+    this._buttonElement = this.formElement.querySelector(this.config.submitButtonSelector);
   }
 
     //показать ошибку валидации
   _showInputError(inputElement, errorMessage) {
-      const fieldErrorMessage = this.formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
-      inputElement.classList.add(this.config.inputErrorClass);
-      fieldErrorMessage.textContent = errorMessage;
-      fieldErrorMessage.classList.add(this.config.inputMessageErrorClass);
+    const fieldErrorMessage = this.formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
+    inputElement.classList.add(this.config.inputErrorClass);
+    fieldErrorMessage.textContent = errorMessage;
+    fieldErrorMessage.classList.add(this.config.inputMessageErrorClass);
   };
   
  //скрыть ошибку валидации
-   _hideInputError(inputElement) {
-  const fieldErrorMessage =  this.formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
-  inputElement.classList.remove(this.config.inputErrorClass);
-  fieldErrorMessage.classList.remove(this.config.inputMessageErrorClass);
-  fieldErrorMessage.textContent = '';
+  _hideInputError(inputElement) {
+    const fieldErrorMessage =  this.formElement.querySelector(`.${inputElement.id}${this.config.errorClass}`);
+    inputElement.classList.remove(this.config.inputErrorClass);
+    fieldErrorMessage.classList.remove(this.config.inputMessageErrorClass);
+    fieldErrorMessage.textContent = '';
   };
 
     //проверить на валидность
@@ -63,10 +63,10 @@ class FormValidator {
 
       //изменить цвета кнопки
   _toggleButtonState() {
-  if (this._hasInvalidInput()) {
-    this._disabledFormButton();
+    if (this._hasInvalidInput()) {
+      this._disabledFormButton();
     } else {
-    this._enabledFormButton();
+      this._enabledFormButton();
     }
   };
   
@@ -80,19 +80,19 @@ class FormValidator {
   }
 
   _setEventListeners() {
-  this._toggleButtonState();
+    this._toggleButtonState();
 
-  this.formElement.addEventListener('reset', () => {
-    this._disabledFormButton();
-  });
-
-  this._inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
-      this._isValid(inputElement);
-      this._toggleButtonState();
+    this.formElement.addEventListener('reset', () => {
+      this._disabledFormButton();
     });
-  });
- };
+
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener('input', () => {
+        this._isValid(inputElement);
+        this._toggleButtonState();
+      });
+    });
+  };
 
   //добавить всем формам слушатель
   enableValidation() {

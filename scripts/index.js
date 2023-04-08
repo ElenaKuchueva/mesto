@@ -113,6 +113,7 @@ closeButtons.forEach((button) => {
 //редактирование профиля 
 //открыть поп-апа изменения профиля
 profileEditButton.addEventListener('click', function () {
+  validationPopupEditForm.resetValidation();
   openPopup(popupEdit);
   popupEditFormUserNameInput.value = profileTitle.textContent;
   popupEditFormOccupationInput.value = profileSubtitle.textContent;
@@ -146,6 +147,7 @@ cards.forEach(cardElement => addNewCard(cardElement));
 
 // открыть форму для создания новой карточки
 profileAddButton.addEventListener('click', () => {
+  validationPopupAddform.resetValidation();
   openPopup(popupAdd);
 });
 
