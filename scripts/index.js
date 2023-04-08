@@ -60,9 +60,8 @@ const elements = document.querySelector('.elements');
 
 //валидация
 //создание нового экземпляра валидации для формы изменения профиля
-const validation = new FormValidator(config, popupEditForm);
-//вызов метода активирования валидации форм
-validation.enableValidation();
+const validationPopupEditForm = new FormValidator(config, popupEditForm);
+validationPopupEditForm.enableValidation();
 
 //создание нового экземпляра валидации для формы добавлени карточки
 const validationPopupAddform = new FormValidator(config, popupAddform);

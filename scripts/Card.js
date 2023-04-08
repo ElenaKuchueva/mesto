@@ -30,14 +30,6 @@ class Card {
         delateElement.remove();
       };
 
-      //открываем поп-ап с картинкой
-    _setOpenFullImageHandler() {
-      const cardImage = this.element.querySelector(this.cardImage);
-        cardImage.addEventListener('click', () => {
-        this.handlerImageClick(this.name, this.link);
-      });
-    };
-
     _setEventListeners() {
       this.element.querySelector('.element__icon').addEventListener('click', (evt) => this._setLikeHandler(evt));
 
