@@ -5,7 +5,6 @@ class Card {
         this.alt = card.alt;
         this.templateSelector = templateSelector;
         this.handlerImageClick = handlerImageClick;
-        // this.cardImage = cardImage;
         this.buttonDelate = buttonDelate;
     }
   
@@ -35,7 +34,7 @@ class Card {
 
       this.element.querySelector(this.buttonDelate).addEventListener('click', () => this._setDeleteHandler());
 
-      this.element.querySelector('.element__image').addEventListener('click', () => {
+      this._cardImage.addEventListener('click', () => {
         this.handlerImageClick(this.name, this.link);
       });
     };
@@ -47,9 +46,6 @@ class Card {
       this._cardImage .setAttribute('src', this.link);
       this._cardImage .setAttribute('alt', this.alt);
       this.element.querySelector('.element__title').textContent = this.name;
-
-      // this.element.querySelector(this.cardImage).setAttribute('src', this.link);
-      // this.element.querySelector('.element__image').setAttribute('alt', this.alt);
 
       this._setEventListeners();
 
