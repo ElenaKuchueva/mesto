@@ -131,7 +131,7 @@ popupEditForm.addEventListener('submit', handleProfileFormSubmit);
 //действия с карточками: создать , добавить, открыть форму, форма для карточек, отправить форму
 //создать новую карточку
 function createCard(cardElement) {
-  const card = new Card(cardElement, "#card", handlerImageClick, '.element__image', '.element__delate');
+  const card = new Card(cardElement, "#card", handlerImageClick, '.element__delate');
   const cardGenerate = card.generateCard();
   return cardGenerate;
 };
