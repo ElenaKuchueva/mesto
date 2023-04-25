@@ -1,56 +1,57 @@
 class Card {
-    constructor(card, templateSelector, handlerImageClick, buttonDelate) {
-        this.name = card.name;
-        this.link = card.link;
-        this.alt = card.alt;
-        this.templateSelector = templateSelector;
-        this.handlerImageClick = handlerImageClick;
-        this.buttonDelate = buttonDelate;
-    }
-  
-    //клонируем темплейт-элемент
-    _getTemplate() {
-        const cardElement = document
-          .querySelector(this.templateSelector)
-          .content
-          .querySelector('.element')
-          .cloneNode(true);
-    
-        return cardElement;
-      };
+  constructor(card, templateSelector, handlerImageClick) {
+    this.name = card.name;
+    this.link = card.link;
+    this.alt = card.alt;
+    this.templateSelector = templateSelector;
+    this.handlerImageClick = handlerImageClick;
+    this.element = this._getTemplate();
+    this.buttonDelate = this.element.querySelector(".element__delate");
+  }
 
-    _setLikeHandler(evt) {
-        const eventTarget = evt.target;
-        eventTarget.classList.toggle("element__icon_active");
-      };
+  //клонируем темплейт-элемент
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this.templateSelector)
+      .content.querySelector(".element")
+      .cloneNode(true);
 
-    _setDeleteHandler() {
-        const delateElement = this.element.querySelector(this.buttonDelate).closest('.element');
-        delateElement.remove();
-      };
+    return cardElement;
+  }
 
-    _setEventListeners() {
-      this.element.querySelector('.element__icon').addEventListener('click', (evt) => this._setLikeHandler(evt));
+  _setLikeHandler(evt) {
+    const eventTarget = evt.target;
+    eventTarget.classList.toggle("element__icon_active");
+  }
 
-      this.element.querySelector(this.buttonDelate).addEventListener('click', () => this._setDeleteHandler());
+  _setDeleteHandler() {
+    const delateElement = this.buttonDelate.closest(".element");
+    delateElement.remove();
+  }
 
-      this._cardImage.addEventListener('click', () => {
-        this.handlerImageClick(this.name, this.link);
-      });
-    };
+  _setEventListeners() {
+    this.element
+      .querySelector(".element__icon")
+      .addEventListener("click", (evt) => this._setLikeHandler(evt));
 
-    generateCard() {
-      this.element = this._getTemplate();
-      this._cardImage = this.element.querySelector('.element__image');
+    this.buttonDelate.addEventListener("click", () => this._setDeleteHandler());
 
-      this._cardImage .setAttribute('src', this.link);
-      this._cardImage .setAttribute('alt', this.alt);
-      this.element.querySelector('.element__title').textContent = this.name;
+    this._cardImage.addEventListener("click", () => {
+      this.handlerImageClick(this.name, this.link);
+    });
+  }
 
-      this._setEventListeners();
+  generateCard() {
+    this._cardImage = this.element.querySelector(".element__image");
 
-        return this.element;
-      };
-  };
+    this._cardImage.setAttribute("src", this.link);
+    this._cardImage.setAttribute("alt", this.alt);
+    this.element.querySelector(".element__title").textContent = this.name;
 
-  export {Card};
+    this._setEventListeners();
+
+    return this.element;
+  }
+}
+
+export { Card };
