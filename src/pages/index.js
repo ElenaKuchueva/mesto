@@ -135,12 +135,10 @@ function handleAddNewCardFormSubmit(data) {
     .postNewCard(data)
       .then((res) => {
         section.addCard(createCard(res));
+        newCardPopup.close();
       })
         .catch((err) => console.log(err))
-          .finally(() => {
-            newCardPopup.loadingOnPage(false);
-            newCardPopup.close();
-          });
+          .finally(() => newCardPopup.loadingOnPage(false));
 }
 
 newCardPopup.setEventListeners();
@@ -185,12 +183,12 @@ function handleUserInfoFormSubmit(data) {
   userInfoPopup.loadingOnPage(true);
   api
     .changeValuesUserInfo(data)
-      .then((res) => userInfo.setUserInfo(res))
+      .then((res) => {
+        userInfo.setUserInfo(res);
+        userInfoPopup.close();
+      })
         .catch((err) => console.log(err))
-          .finally(() => {
-            userInfoPopup.loadingOnPage(false);
-            userInfoPopup.close();
-    });
+          .finally(() => userInfoPopup.loadingOnPage(false));
 }
 userInfoPopup.setEventListeners();
 
@@ -216,12 +214,12 @@ function handleAvatarPopupFormSubmit(data) {
   avatarPopup.loadingOnPage(true);
   api
     .changeAvatar(data)
-      .then((res) => userInfo.setUserInfo(res))
+      .then((res) => {
+        userInfo.setUserInfo(res);
+        avatarPopup.close();
+      })
         .catch((err) => console.log(err))
-          .finally(() => {
-            avatarPopup.loadingOnPage(false);
-            avatarPopup.close();
-          });
+          .finally(() => avatarPopup.loadingOnPage(false));
 }
 
 avatarPopup.setEventListeners();
