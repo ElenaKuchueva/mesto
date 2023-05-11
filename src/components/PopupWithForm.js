@@ -1,18 +1,20 @@
-import { Popup } from "./Popup";
+import { Popup } from "./Popup.js";
 
-class PopupWithForm extends Popup {
-  constructor({ popupSelector, handleFormSubmit }) {
+export class PopupWithForm extends Popup {
+  constructor(popupSelector,handleFormSubmit) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-    this._popupForm = this._popup.querySelector(".fields");
-    this._inputList = this._popupForm.querySelectorAll(".field");
+    this._popupForm = this._popup.querySelector('.fields');
+    this._inputList = this._popupForm.querySelectorAll('.field');
+    this._submitButton = this._popupForm.querySelector('.submit');
+    this._submitButtonTextContent = this._submitButton.textContent;
   }
 
   _getInputValues() {
-    const formInfo = {};
-    this._inputList.forEach((input) => (formInfo[input.name] = input.value));
-    return formInfo;
-  }
+    const inputValues = {};
+    this._inputList.forEach(input => inputValues[input.name] = input.value);
+    return inputValues;
+  };
 
   setInputValues(data) {
     this._inputList.forEach((input) => {
@@ -21,19 +23,25 @@ class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    this._popupForm.addEventListener("submit", (evt) => {
+    this._popupForm.addEventListener('submit', evt => {
       evt.preventDefault();
-      const imputValues = this._getInputValues();
-      this._handleFormSubmit(imputValues);
-      this.close();
+      this._handleFormSubmit(this._getInputValues());
     });
     super.setEventListeners();
   }
 
   close() {
-    this._popupForm.reset();
     super.close();
+    this._popupForm.reset();
   }
-}
 
-export { PopupWithForm };
+  loadingOnPage(isLoading) {
+    if (isLoading) {
+      this._submitButton.textContent = "Сохранение...";
+    }
+    else {
+      this._submitButton.textContent = this._submitButtonTextContent;
+    }
+  }
+
+}

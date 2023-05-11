@@ -1,46 +1,13 @@
-export const cards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-    alt: "горы",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-    alt: "Зимний лес вокруг озера",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-    alt: "Вечерние многоэтажки",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-    alt: "Гора",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-    alt: "Пустая жеолезная дорога",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-    alt: "Озеро подо льдом",
-  },
-];
-
 //профиль
 export const profileEditButton = document.querySelector(".profile__edit");
 export const profileAddButton = document.querySelector(".profile__add");
+export const profileAditAvatarButton = document.querySelector(".edit-avatar");
 //поп-ап: измененить профиля
 export const popupEditForm = document.forms["popupEdit-form"];
-export const popupEditFormUserNameInput = document.querySelector("#username");
-export const popupEditFormOccupationInput =
-  document.querySelector("#occupation");
 //поп-ап: добавить карточку
 export const popupAddform = document.forms["PopupAdd-Form"];
+//поп-ап: изменить аватар
+export const popupEditAvatarForm = document.forms["PopupChangeAvatar-form"];
 
 export const config = {
   formSelector: ".fields",

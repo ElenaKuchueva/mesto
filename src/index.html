@@ -17,7 +17,10 @@
   <main class="content">
     <section class="profile">
       <div class="profile__content">
-        <img src="<%=require('./images/avatar.png')%>" class="avatar" alt="Фото профиля.">
+        <div class="avatar-zone">
+          <img src="<%=require('./images/avatar.png')%>" class="avatar" alt="Фото профиля.">
+          <button class="edit-avatar" type="button" aria-label="Добавить аватар."></button>
+        </div>
         <div class="profile__info">
           <div class="profile__heading">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -36,7 +39,10 @@
           <img class="element__image">
           <div class="element__description">
             <h2 class="element__title"></h2>
+            <div class="element__icon-zone">
             <button class="element__icon" type="button" aria-label="Нравится."></button>
+            <p class="element__total-icon">0</p>
+            </div>
           </div>
         </article>
       </template>
@@ -52,11 +58,11 @@
       <button class="popup__close" type="button" aria-label="Закрыть."></button>
       <div class="form">
         <h2 class="form__heading">Редактировать профиль</h2>
-        <form class="fields" name="popupEdit-form" method="post" novalidate>
+        <form class="fields" name="popupEdit-form" novalidate>
           <input class="field" type="text" name="name" id="username" value="" tabindex="1" placeholder="Имя"
             minlength="2" maxlength="40" required>
           <span class="username-message-error field-message-error"></span>
-          <input class="field" type="text" name="occupation" id="occupation" value="" tabindex="2" placeholder="О себе"
+          <input class="field" type="text" name="about" id="occupation" value="" tabindex="2" placeholder="О себе"
             minlength="2" maxlength="200" required>
           <span class="occupation-message-error field-message-error"></span>
           <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
@@ -70,8 +76,8 @@
       <button class="popup__close" type="button" aria-label="Закрыть."></button>
       <div class="form">
         <h2 class="form__heading">Новое место</h2>
-        <form class="fields" name="PopupAdd-Form" method="post" novalidate>
-          <input class="field" type="text" name="place" id="newPlace" value="" tabindex="1" placeholder="Название"
+        <form class="fields" name="PopupAdd-Form" novalidate>
+          <input class="field" type="text" name="name" id="newPlace" value="" tabindex="1" placeholder="Название"
             minlength="2" maxlength="30" required>
           <span class="newPlace-message-error field-message-error"></span>
           <input class="field" type="url" name="link" id="link" value="" tabindex="2" placeholder="Ссылка на картинку"
@@ -88,6 +94,35 @@
       <button class="popup__close" type="button" aria-label="Закрыть."></button>
       <img class="popup__image" alt="" src="#">
       <h2 class="popup__title"></h2>
+    </div>
+  </div>
+
+  <div class="popup" id="popupConfirm">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Закрыть."></button>
+      <div class="form form_delate-element">
+        <h2 class="form__heading">Вы уверены?</h2>
+        <form class="fields" name="PopupConfirm-form" method="post" novalidate>
+          <button class="submit" type="submit" aria-label="Сохранить изменения.">Да</button>
+        </form>
+      </div>
+    </form>
+    </div>
+  </div>
+
+  <div class="popup" id="PopupAvatar">
+    <div class="popup__container">
+      <button class="popup__close" type="button" aria-label="Закрыть."></button>
+      <div class="form form_change-avatar">
+        <h2 class="form__heading">Обновить аватар</h2>
+        <form class="fields" name="PopupChangeAvatar-form" novalidate>
+          <input class="field" type="url" name="avatar" id="newAvatar" value="" tabindex="1" placeholder="Введите ссылку"
+         required>
+        <span class="newAvatar-message-error field-message-error"></span>
+          <button class="submit" type="submit" aria-label="Сохранить изменения.">Сохранить</button>
+        </form>
+      </div>
+    </form>
     </div>
   </div>
 </body>
